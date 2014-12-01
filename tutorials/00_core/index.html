@@ -29,30 +29,33 @@ THE SOFTWARE.
 
 FILE : 00_core
 
-In this tutorial you can see how to create a simple canvas using the function :
-	main=new canvas(640,480,"main");
+In this tutorial you will learn how to create a canvas by creating a new canvas object :
+	main=new canvas(640,480,"main"); //Example canvas object.
 
-As you can see you just have to specify the WIDTH and HEIGHT of the desired
-canvas, and as a third param, you can specify the DIV id you want to be create.
-If you don't specify a DIVid target the canvas will be created offscreen (meaning
-it wont be shown, very usefull for some effects)
+As can be seen in the following example, only the WIDTH and HEIGHT of your 
+canvas size is required to create a canvas. Optionally, you can pass
+a third parameter to your new canvas object which will set the ID of the created DIV element.
+If a third parameter is not set, the DIV element for the canvas will be created offscreen.
+(Tip: Not showing the canvas may be useful for some CODEF effects.) 
 
-The canvas function return an object with some nice functions :
-	.clear() = a fonction to clear the canvas
-	.fill(color) = a fonction to fill entirely the canvas with the color.
+The canvas function returns an object with some nice functions :
+	.clear() = This function clears the canvas
+	.fill(color) = This function fills the entire canvas with a specified color.
 	
+Reminder: The codef core script must be loaded to use codef! Don't forget it.
 ------------------------------------------------------------------------------>
 <html> 
 <head> 
  
-<script src="http://codef.santo.fr/codef/codef_core.js"></script> 
+<!-- We must load the codef core to use codef. -->
+<script src="http://codef.santo.fr/codef/codef_core.js"></script>
 <script> 
  
 var mycanvas;
  
 function init(){
-	mycanvas=new canvas(640,480,"main");
-	go();
+	mycanvas=new canvas(640,480,"main"); // on Initialization, we create our canvas with DIV ID "main".
+	go(); // Now we start the CODEF effects by calling the go function.
 }
  
 function go(){
