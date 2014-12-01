@@ -29,11 +29,18 @@ THE SOFTWARE.
 
 FILE : 01_core
 
-In this tutorial you can see how to create simple lines on a created canvas
+In this tutorial you will learn how to create simple lines on a canvas.
 
-As we have seen the canvas function return an object with some nice functions :
+As seen in the previous tutorial, canvas provides access to various methods.
+Another method returned by the canvas object is the line method.
+
 	.line(x1,y1,x2,y2,width,color)
-	
+
+The line method allows us to use x,y coordinates to draw lines on the canvas.
+The x1 and y1 parameters of the line method declare our line starting point.
+The x2 and y2 parameters of the line method declare our line ending point.
+The width parameter declares line thickness and the last parameter the line color.
+
 ------------------------------------------------------------------------------>
 <html> 
 <head> 
@@ -50,9 +57,19 @@ function init(){
  
 function go(){
 	mycanvas.fill('#000000');
+
 	mycanvas.line(0,0,640,480,1,'#FF0000');
+	/*In this line method, a line begins at the top left of the canvas 
+          and ends at the bottom right of the canvas.
+          A thickness of 1px is used for the line width and a hex color of #FF0000.*/ 
+
+	/*In this line method, a line begins at the bottom left of the canvas
+	  and ends at the top right of the canvas.
+	  A thickness of 5px is used for the line width and a hex color of #00FF00.*/
 	mycanvas.line(0,480,640,0,5,'#00FF00');
+
 	requestAnimFrame( go );
+	//https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame
 }
  
 </script> 
