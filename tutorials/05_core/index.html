@@ -29,8 +29,14 @@ THE SOFTWARE.
 
 FILE : 05_core
 
-In this tutorial you can see a simple animation based on 04_core : 
-
+In this tutorial you will learn basic animation using the example from 04_core.
+Our animation will bounce our image from one side of the canvas to the other.
+When our image touches either side of the canvas, it will change direction.
+To accomplish this, we declare two 'if statements' that detect the image location.
+One if statement will determine if the image has reached the end of the canvas.
+Another if statement will determine if the image has reached the beginning.
+When either statement is true, the travel direction will be switched accordingly.
+The image travel direction is determined with a positive or negative coordinate. 
 ------------------------------------------------------------------------------>
 <html> 
 <head> 
@@ -41,7 +47,9 @@ In this tutorial you can see a simple animation based on 04_core :
 var myimage=new image('../media/logo.png');
 var mycanvas;
 
+//This variable will determine the location of the image each frame.
 var myimageX=0;
+//This variable determines the image travel direction.
 var myimageMove=1;
  
 function init(){
@@ -49,16 +57,25 @@ function init(){
 	go();
 }
  
+//This function is looped indefinitely.
 function go(){
 	mycanvas.fill('#000000');
 	myimage.draw(mycanvas,myimageX,180);
 	
+	//Every frame we move the image based on the value of myimageMove.
+	//It will move either to the left or to the right based on its value.
+	//It will move to the right if positive, or to the left if negative.
 	myimageX+=myimageMove;
 
+	//If the image reaches the end of the canvas...
 	if(myimageX>640-myimage.img.width)
+		//...Move it backwards by assigning a negative value.
 		myimageMove=-1;
+
+	//If the image reaches the start of the canvas...
 	if(myimageX<0)
-		myimageMove=1;
+		//...Move it forward by assigning a positive value.
+		myimageMove=1; 
 
 
 	requestAnimFrame( go );
