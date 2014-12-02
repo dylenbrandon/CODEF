@@ -29,11 +29,21 @@ THE SOFTWARE.
 
 FILE : 02_core
 
-In this tutorial you can see how to create simple triangles on a created canvas
+In this tutorial you will learn how to create simple triangles on a canvas.
 
-As we have seen the canvas function return an object with some nice functions :
+To create a triangle, we call the triangle method from the canvas object.
+The triangle method takes seven parameters. The first six parameters plot
+coordinates on the canvas while the last parameter specifies the color.
+
 	.triangle(x1,y1,x2,y2,x3,y3,color)
-	
+
+	//Triangle Expanded Explanation
+	.triangle(
+		x1,y1, //Triangle Corner 1
+		x2,y2, //Triangle Corner 2
+		x3,y3, //Triangle Corner 3
+		color  //Triangle Color
+	)
 ------------------------------------------------------------------------------>
 <html> 
 <head> 
