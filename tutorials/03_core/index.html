@@ -29,11 +29,36 @@ THE SOFTWARE.
 
 FILE : 03_core
 
-In this tutorial you can see how to create simple quads on a created canvas
+In this tutorial you will learn how to create simple quads on a canvas.
+A quad is a shape with four vertices such as a square or a rectangle.
 
-As we have seen the canvas function return an object with some nice functions :
-	.quad(x1,y1,x2,y2,x3,y3,x4,y4,color)
+To create quads, we call the quad method from the canvas object.
+The quads long method takes nine parameters. The first 8 parameters plot
+coordinates on the canvas while the last specifies color.
+The quad method also has a shorthand version which allows for you to quickly
+specify a starting point in the x,y axis followed by a width and height for your
+quad. Both versions are explained in more detail below.
+			
+	.quad(x1,y1,x2,y2,x3,y3,x4,y4,color) //Long Version
+	.quad(x1,y1,width,height,color)	//Short Version
 	
+	//Long Version Expanded Explanation
+	.quad(	
+		x1,y1, //Quad Corner 1
+                x2,y2, //Quad Corner 2
+		x3,y3, //Quad Corner 3
+		x4,y4, //Quad Corner 4
+		color  //Quad Color 
+	)
+
+	//Short Version Expanded Explanation
+	.quad(
+		x1, 	//Horizontal Starting point for Quad
+		y1, 	//Vertical Starting point for Quad.
+		width,	//Width of Quad.
+		height, //Height of Quad.
+		color,	//Color of Quad.
+	)
 ------------------------------------------------------------------------------>
 <html> 
 <head> 
