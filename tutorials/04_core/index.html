@@ -54,7 +54,12 @@ method can take several parameters.
 	)
 
 (Tip: Image objects also have a useful "setmidhandle" method which sets the
-handle of the image to be the center rather than the top left 0,0 position.)
+handle of the image to be the center rather than the top left 0,0 position.
+The setmidhandle method should be called in init while new image objects should
+be created before init. This is because creating a new image object in init 
+and then immediately calling the setmidhandle method on the new object can fail
+due to the fact the image may not have yet loaded. It is a better practice to 
+declare all images before init, and then working on them later.)
 ------------------------------------------------------------------------------>
 <html> 
 <head> 
