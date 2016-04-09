@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<!------------------------------------------------------------------------------
+Copyright (c) 2011 Antoine Santo Aka NoNameNo
+
+This File is part of the CODEF project.
+
+More info : http://codef.santo.fr
+Demo gallery http://www.wab.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+------------------------------------------------------------------------------>
+<<<<<<< HEAD:tutorials/05_core/index.html
+<!------------------------------------------------------------------------------
+
+FILE : 05_core
+
+In this tutorial you will learn basic animation using the example from 04_core.
+Our animation will bounce our image from one side of the canvas to the other.
+When our image touches either side of the canvas, it will change direction.
+To accomplish this, we declare two 'if statements' that detect the image location.
+One if statement will determine if the image has reached the end of the canvas.
+Another if statement will determine if the image has reached the beginning.
+When either statement is true, the travel direction will be switched accordingly.
+The image travel direction is determined with a positive or negative coordinate. 
+------------------------------------------------------------------------------>
+<html> 
+<head> 
+ 
+<script src="http://codef.santo.fr/codef/codef_core.js"></script> 
+<script> 
+
+var myimage=new image('../media/logo.png');
+var mycanvas;
+
+//This variable will determine the location of the image each frame.
+var myimageX=0;
+//This variable determines the image travel direction.
+var myimageMove=1;
+ 
+function init(){
+	mycanvas=new canvas(640,480,"main");
+	go();
+}
+ 
+//This function is looped indefinitely.
+function go(){
+	mycanvas.fill('#000000');
+	myimage.draw(mycanvas,myimageX,180);
+	
+	//Every frame we move the image based on the value of myimageMove.
+	//It will move either to the left or to the right based on its value.
+	//It will move to the right if positive, or to the left if negative.
+	myimageX+=myimageMove;
+
+	//If the image reaches the end of the canvas...
+	if(myimageX>640-myimage.img.width)
+		//...Move it backwards by assigning a negative value.
+		myimageMove=-1;
+
+	//If the image reaches the start of the canvas...
+	if(myimageX<0)
+		//...Move it forward by assigning a positive value.
+		myimageMove=1; 
+
+
+	requestAnimFrame( go );
+}
+ 
+</script> 
+</head> 
+<body onLoad="init();">
+<br>
+<br>
+<center><div id="main"></div><br><br><a href="javascript:window.location='view-source:'+window.location">View Source</a><br><br>
+</body> 
+=======
+<html> 
+  <head> 
+    
+    <script src="http://codef.santo.fr/codef/codef_core.js"></script> 
+    <script src="http://codef.santo.fr/codef/codef_starfield.js"></script> 
+    <script> 
+      
+      var mycanvas;
+      var my2dstarfield;
+      var my2dstarsparams=[
+        {nb:300, speedy:0, speedx:0.9, color:'#FFFFFF', size:2},
+        {nb:300, speedy:0, speedx:0.8, color:'#888888', size:2},
+        {nb:300, speedy:0, speedx:0.7, color:'#444444', size:2},
+      ];
+        
+        
+        function init(){
+        mycanvas=new canvas(640,480,"main");
+        my2dstarfield=new starfield2D_dot(mycanvas,my2dstarsparams);
+        
+        go();
+        }
+        
+        function go(){
+        mycanvas.fill('#000000');
+        my2dstarfield.draw();
+        requestAnimFrame( go );
+        }
+        
+    </script> 
+  </head> 
+  <body onLoad="init();">
+    <br>
+    <br>
+    <center><div id="main"></div><br><br><a href="javascript:window.location='view-source:'+window.location">View Source</a></center>
+  </body> 
+>>>>>>> upstream/master:tutorials/41_starfield.html
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<!------------------------------------------------------------------------------
+Copyright (c) 2011 Antoine Santo Aka NoNameNo
+
+This File is part of the CODEF project.
+
+More info : http://codef.santo.fr
+Demo gallery http://www.wab.com
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+------------------------------------------------------------------------------>
+<<<<<<< HEAD:tutorials/04_core/index.html
+<!------------------------------------------------------------------------------
+
+FILE : 04_core
+
+In this tutorial you will learn how to load and display images on the canvas.
+Loading and displaying images requires an additional step that our previous 
+tutorials did not require. A new image object has to be created that will allow
+us to draw images onto our canvas. Once the image is configured and ready for 
+use, we display the image by calling the image object method "draw". This draw
+method can take several parameters.
+
+	//Example new image object.
+	myimage=new image('logo.png');
+
+	//Method to draw an image onto the canvas.
+	.draw(dst,posx,posy,alpha,rot,width,height)
+	
+	//Draw Method Expanded Explanation
+	.draw(
+		dst,  //This parameter should be the name of your canvas object.	
+		posx, //Horizontal Starting Point of where to load the image.
+		posy, //Vertical Starting Point of where to load the image.
+		alpha,//Optionally declare image alpha.
+		rot,  //Optionally rotate the image.
+		width,//Optionally declare image width.
+		height//Optionally declare image height.
+	)
+
+(Tip: Image objects also have a useful "setmidhandle" method which sets the
+handle of the image to be the center rather than the top left 0,0 position.
+The setmidhandle method should be called in init while new image objects should
+be created before init. This is because creating a new image object in init 
+and then immediately calling the setmidhandle method on the new object can fail
+due to the fact the image may not have yet loaded. It is a better practice to 
+declare all images before init, and then working on them later.)
+------------------------------------------------------------------------------>
+<html> 
+<head> 
+ 
+<script src="http://codef.santo.fr/codef/codef_core.js"></script> 
+<script> 
+
+var myimage=new image('../media/logo.png'); //Create required image object.
+var mycanvas;
+ 
+function init(){
+	mycanvas=new canvas(640,480,"main");
+	myimage.setmidhandle();	//Optionally, set the middle handler.
+	go();
+}
+
+function go(){
+	mycanvas.fill('#000000');
+
+        //In this example, the image is displayed with alpha 1 and rot 45.
+	myimage.draw(mycanvas,320,150,1,45);
+	//In this example, the image is only being placed onto the canvas.
+=======
+<html> 
+  <head> 
+    
+    <script src="http://codef.santo.fr/codef/codef_core.js"></script> 
+    <script> 
+      
+      var myimage=new image('media/logo.png');
+      var mycanvas;
+      
+      function init(){
+        mycanvas=new canvas(640,480,"main");
+        myimage.setmidhandle();
+        go();
+      }
+      
+      function go(){
+        mycanvas.fill('#000000');
+        myimage.draw(mycanvas,320,150,1,45);
+>>>>>>> upstream/master:tutorials/04_core.html
+        myimage.draw(mycanvas,150,250);
+	//In this example, Alpha is set to 1 and width/height are both set.
+        myimage.draw(mycanvas,320,380,1,0,2,1.5);
+<<<<<<< HEAD:tutorials/04_core/index.html
+
+   	//Remember: We are not drawing the image from the canvas object.
+	//Notice above that we are calling the draw method from our image object
+
+	requestAnimFrame( go );
+}
+ 
+</script> 
+</head> 
+<body onLoad="init();">
+<br>
+<br>
+<center><div id="main"></div><br><br><a href="javascript:window.location='view-source:'+window.location">View Source</a><br><br>
+</body> 
+=======
+        
+        
+        
+        
+        requestAnimFrame( go );
+      }
+      
+    </script> 
+  </head> 
+  <body onLoad="init();">
+    <br>
+    <br>
+    <center><div id="main"></div><br><br><a href="javascript:window.location='view-source:'+window.location">View Source</a></center>
+  </body> 
+>>>>>>> upstream/master:tutorials/04_core.html
+</html>
